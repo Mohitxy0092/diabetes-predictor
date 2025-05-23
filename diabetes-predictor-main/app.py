@@ -15,7 +15,7 @@ st.subheader("Enter Patient Details")
 
 # Create 10 separate input fields
 age = st.number_input("Age")
-sex = st.number_input("Sex")
+sex = st.text_input("Sex")
 bmi = st.number_input("BMI")
 bp = st.number_input("Blood Pressure")
 s1 = st.number_input("S1")
