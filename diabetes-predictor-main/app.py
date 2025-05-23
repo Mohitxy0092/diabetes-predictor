@@ -2,14 +2,14 @@ import streamlit as st
 import joblib
 import numpy as np
 import os
-import streamlit as st
+# Get the absolute path of the current file (app.py)
+current_dir = os.path.dirname(os.path.abspath(__file__))
 
-st.write("Current working directory:", os.getcwd())
-st.write("Files in current directory:", os.listdir())
-st.title("Diabetes Progression Predictor")
+# Build full path to model.pkl relative to app.py
+model_path = os.path.join(current_dir, "model.pkl")
 
 # Load model
-model = joblib.load("model.pkl")
+model = joblib.load(model_path)
 
 st.subheader("Enter Patient Details")
 
