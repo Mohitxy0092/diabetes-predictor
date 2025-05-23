@@ -3,7 +3,7 @@ import joblib
 import numpy as np
 import os
 
-st.title("Diabetes Progression Predictor by Ashish")
+st.title("Diabetes Progression Predictor")
 
 # Load model with path relative to this script
 current_dir = os.path.dirname(os.path.abspath(__file__))
