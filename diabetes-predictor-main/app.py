@@ -2,20 +2,19 @@ import streamlit as st
 import joblib
 import numpy as np
 import os
-# Get the absolute path of the current file (app.py)
+
+st.title("Diabetes Progression Predictor by Ashish")
+
+# Load model with path relative to this script
 current_dir = os.path.dirname(os.path.abspath(__file__))
-
-# Build full path to model.pkl relative to app.py
 model_path = os.path.join(current_dir, "model.pkl")
-
-# Load model
 model = joblib.load(model_path)
 
-st.subheader("Enter Patient Details")
+st.subheader("Enter Patient Features")
 
-# Create 10 separate input fields
-age = st.number_input("Age")
-sex = st.text_input("Sex")
+age = st.number_input("Age", min_value=0)
+sex_str = st.selectbox("Sex", options=["Female", "Male"])
+sex = 1 if sex_str == "Male" else 0
 bmi = st.number_input("Body Mass Index (BMI)")
 bp = st.number_input("Average Blood Pressure")
 s1 = st.number_input("Total Cholesterol (S1)")
@@ -25,11 +24,10 @@ s4 = st.number_input("Total Cholesterol / HDL Ratio (S4)")
 s5 = st.number_input("Log of Serum Triglycerides (S5)")
 s6 = st.number_input("Glucose Serum Level (S6)")
 
-
 if st.button("Predict Progression"):
     try:
-        # Convert input to float and form feature array
-        features = [float(age), float(sex), float(bmi), float(bp), float(s1), float(s2), float(s3), float(s4), float(s5), float(s6)]
+        features = [float(age), float(sex), float(bmi), float(bp),
+                    float(s1), float(s2), float(s3), float(s4), float(s5), float(s6)]
         features = np.array(features).reshape(1, -1)
         prediction = model.predict(features)
         st.success(f"Predicted Disease Progression: {prediction[0]:.2f}")
