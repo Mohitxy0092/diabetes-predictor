@@ -1,7 +1,11 @@
 import streamlit as st
 import joblib
 import numpy as np
+import os
+import streamlit as st
 
+st.write("Current working directory:", os.getcwd())
+st.write("Files in current directory:", os.listdir())
 st.title("Diabetes Progression Predictor")
 
 # Load model
