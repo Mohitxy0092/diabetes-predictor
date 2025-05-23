@@ -16,14 +16,15 @@ st.subheader("Enter Patient Details")
 # Create 10 separate input fields
 age = st.number_input("Age")
 sex = st.text_input("Sex")
-bmi = st.number_input("BMI")
-bp = st.number_input("Blood Pressure")
-s1 = st.number_input("S1")
-s2 = st.number_input("S2")
-s3 = st.number_input("S3")
-s4 = st.number_input("S4")
-s5 = st.number_input("S5")
-s6 = st.number_input("S6")
+bmi = st.number_input("Body Mass Index (BMI)")
+bp = st.number_input("Average Blood Pressure")
+s1 = st.number_input("Total Cholesterol (S1)")
+s2 = st.number_input("LDL Cholesterol (S2)")
+s3 = st.number_input("HDL Cholesterol (S3)")
+s4 = st.number_input("Total Cholesterol / HDL Ratio (S4)")
+s5 = st.number_input("Log of Serum Triglycerides (S5)")
+s6 = st.number_input("Glucose Serum Level (S6)")
+
 
 if st.button("Predict Progression"):
     try:
